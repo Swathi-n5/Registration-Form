@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registered Users</title>
+    <link rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+    <div class="container">
+        <h2>📋 Registered Users List</h2>
+        
+        <a href="index.html" class="view-link">← Go to Registration Form</a>
+
+        <table id="userTable">
+            <thead>
+                <tr>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Address</th>
+                    <th>Birth Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="userTableBody">
+                <tr><td colspan="6">Loading users...</td></tr>
+            </tbody>
+        </table>
+
+        <div id="updateModal" class="modal-overlay" style="display:none;">
+            <div class="modal-content">
+                <button class="modal-close-btn" onclick="closeModal()">&times;</button>
+                <h3>Edit User Details</h3>
+                <form id="updateForm" onsubmit="event.preventDefault(); handleUpdate();">
+                    <input type="hidden" id="updateId" name="id"> 
+                    
+                    <div class="form-group">
+                        <label for="updateFullName">Full Name</label>
+                        <input type="text" id="updateFullName" name="fullName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="updateEmail">Email</label>
+                        <input type="email" id="updateEmail" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="updatePhoneNumber">Phone Number</label>
+                        <input type="tel" id="updatePhoneNumber" name="phoneNumber" required pattern="[0-9]{10}">
+                    </div>
+                    <div class="form-group">
+                        <label for="updateAddress">Address</label>
+                        <textarea id="updateAddress" name="address" rows="3" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="updateBirthDate">Birth Date</label>
+                        <input type="date" id="updateBirthDate" name="birthDate">
+                    </div>
+
+                    <button type="submit" class="action-btn action-btn-update">Save Changes</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+   <script src="app.js"></script>
+</body>
+</html>
